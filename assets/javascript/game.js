@@ -10,7 +10,7 @@ var randomLetter;
 // var randomLetter = alphabet[Math.floor(Math.random() * 26)];
 // picking new random letter
 var newLetter = function() {
-    randomLetter = alphabet[Math.floor(Math.random() * 26)];
+    randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
 }
 
 // giving the letters so far
@@ -37,9 +37,16 @@ var newGame = function() {
 // Game Start
 newGame();
 
+// code below is how the game works
+
+
 
 document.onkeyup = function() {
-	var userGuess = event.key;
+    // var userGuess = event.key;
+    // key listener for which key user presses other than a-z
+    var userGuess = event.key.toLowerCase();
+        var regex = /[a-zA-Z]/g;
+        userGuess.match(regex);
     left--;
     guessesSoFar.push(userGuess);
     soFar();
